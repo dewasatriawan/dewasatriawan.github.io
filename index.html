@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dewa Ketut Satriawan | Software Engineer</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="font-sans bg-white dark:bg-gray-900 transition-colors duration-300">
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-white dark:bg-gray-900 shadow-md z-50 transition-all duration-300">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">DKS</a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+        <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a>
+        <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+        <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none">
+          <i class="fas fa-moon text-gray-700 dark:hidden"></i>
+          <i class="fas fa-sun text-yellow-300 hidden dark:block"></i>
+        </button>
+        <div class="md:hidden">
+          <button id="menu-toggle" class="focus:outline-none">
+            <i class="fas fa-bars text-gray-700 dark:text-gray-300"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-md">
+      <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
+        <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+        <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a>
+        <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+        <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-indigo-900 transition-colors duration-300">
+    <div class="container mx-auto px-6 py-24 text-center">
+      <div class="animate-fadeIn">
+        <h1 class="text-4xl md:text-6xl font-bold text-gray-800 dark:text-white mb-4">Dewa Ketut Satriawan</h1>
+        <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 dark:text-indigo-400 mb-8">Software Engineer</h2>
+        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10">
+          Building innovative solutions with modern technologies.
+        </p>
+        <div class="flex justify-center space-x-4">
+          <a href="#projects" class="px-8 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+            View Projects
+          </a>
+          <a href="#contact" class="px-8 py-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 border border-indigo-600 dark:border-indigo-400 rounded-full hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+            Contact Me
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">About Me</h2>
+        <div class="w-16 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto"></div>
+      </div>
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <div class="relative">
+            <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden mx-auto border-4 border-indigo-600 dark:border-indigo-400">
+              <img src="assets/dewok.jpg?text=DKS" alt="Dewa Ketut Satriawan" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2 md:pl-10">
+          <h3 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Software Engineer at PT. Bima Sakti Alterra</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Hello! I'm Dewa, a passionate software engineer specialized in building exceptional digital experiences.
+            With a strong foundation in software development principles and a knack for solving complex problems,
+            I strive to create efficient, scalable, and user-friendly applications.
+          </p>
+          <p class="text-gray-600 dark:text-gray-300 mb-8">
+            Currently working at PT. Bima Sakti Alterra, I'm constantly learning and adapting to new technologies
+            to improve my craft. When I'm not coding, you can find me exploring new technologies,
+            contributing to open-source projects, or sharing knowledge with the community.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://github.com/dewasatriawan" target="_blank" class="social-icon">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/" target="_blank" class="social-icon">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:contact@example.com" class="social-icon">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">My Skills</h2>
+        <div class="w-16 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-js"></i>
+          </div>
+          <h3 class="skill-name">JavaScript</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-react"></i>
+          </div>
+          <h3 class="skill-name">React</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-node-js"></i>
+          </div>
+          <h3 class="skill-name">Node.js</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-html5"></i>
+          </div>
+          <h3 class="skill-name">HTML5</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-css3-alt"></i>
+          </div>
+          <h3 class="skill-name">CSS3</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-python"></i>
+          </div>
+          <h3 class="skill-name">Python</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fab fa-git-alt"></i>
+          </div>
+          <h3 class="skill-name">Git</h3>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3 class="skill-name">Databases</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">My Projects</h2>
+        <div class="w-16 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Cappuccino Client Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/600x400.png?text=Cappuccino+Client" alt="Cappuccino Client" class="w-full h-full object-cover">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Cappuccino Client</h3>
+            <p class="project-description">
+              A demo floating button integration for chat bots. This project showcases a simple and elegant solution for adding chat functionality to any website.
+            </p>
+            <div class="project-tech">
+              <span>JavaScript</span>
+              <span>HTML/CSS</span>
+              <span>API Integration</span>
+            </div>
+            <div class="project-links">
+              <a href="https://dewasatriawan.github.io/cappuccino-client/" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+              </a>
+              <a href="https://github.com/dewasatriawan/cappuccino-client" target="_blank" class="project-link">
+                <i class="fab fa-github mr-2"></i>Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Other Project 1 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/600x400.png?text=Project+2" alt="Project 2" class="w-full h-full object-cover">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">E-Commerce Platform</h3>
+            <p class="project-description">
+              A fully-featured e-commerce platform with user authentication, product management, cart functionality, and payment integration.
+            </p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+              </a>
+              <a href="#" target="_blank" class="project-link">
+                <i class="fab fa-github mr-2"></i>Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Other Project 2 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/600x400.png?text=Project+3" alt="Project 3" class="w-full h-full object-cover">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Task Management App</h3>
+            <p class="project-description">
+              A collaborative task management application with real-time updates, team assignments, and progress tracking.
+            </p>
+            <div class="project-tech">
+              <span>Vue.js</span>
+              <span>Firebase</span>
+              <span>Tailwind CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+              </a>
+              <a href="#" target="_blank" class="project-link">
+                <i class="fab fa-github mr-2"></i>Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">Get In Touch</h2>
+        <div class="w-16 h-1 bg-indigo-600 dark:bg-indigo-400 mx-auto"></div>
+      </div>
+      <div class="max-w-4xl mx-auto">
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="md:col-span-1">
+            <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Your Name</label>
+            <input type="text" id="name" class="form-input" placeholder="John Doe">
+          </div>
+          <div class="md:col-span-1">
+            <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Your Email</label>
+            <input type="email" id="email" class="form-input" placeholder="john@example.com">
+          </div>
+          <div class="md:col-span-2">
+            <label for="subject" class="block text-gray-700 dark:text-gray-300 mb-2">Subject</label>
+            <input type="text" id="subject" class="form-input" placeholder="Project Inquiry">
+          </div>
+          <div class="md:col-span-2">
+            <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2">Message</label>
+            <textarea id="message" rows="5" class="form-input" placeholder="Your message here..."></textarea>
+          </div>
+          <div class="md:col-span-2 text-center">
+            <button type="submit" class="px-8 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 bg-gray-900 dark:bg-black text-white transition-colors duration-300">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="mb-6 md:mb-0">
+          <a href="#" class="text-2xl font-bold text-indigo-400">DKS</a>
+          <p class="mt-2 text-gray-400">Software Engineer</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://github.com/dewasatriawan" target="_blank" class="footer-icon">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/" target="_blank" class="footer-icon">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="mailto:contact@example.com" class="footer-icon">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between">
+        <p class="text-gray-400">&copy; 2025 Dewa Ketut Satriawan. All rights reserved.</p>
+        <div class="mt-4 md:mt-0">
+          <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300 mr-4">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors duration-300">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
