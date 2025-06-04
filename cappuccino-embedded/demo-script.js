@@ -49,9 +49,9 @@ class CappuccinoChatDemo {
         // Untuk development localhost, gunakan HTTP/WS
         if (this.environment.isDevelopment && !this.environment.isHttps) {
             return {
-                api: 'http://localhost:3001',
-                ws: 'ws://localhost:3001',
-                resources: window.location.origin
+                api: 'http://localhost:8000',
+                ws: 'ws://localhost:8000',
+                resources: 'http://localhost:3012'
             };
         }
 
@@ -59,7 +59,7 @@ class CappuccinoChatDemo {
         return {
             api: 'https://cappucino-api.bsa.id',
             ws: 'wss://cappucino-api.bsa.id',
-            resources: 'https://cappucino-api.bsa.id'
+            resources: 'https://cappucino.bsa.id'
         };
     }
 
