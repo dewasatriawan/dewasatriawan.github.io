@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cappuccino Chat Embedded Widget Demo</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./demo-style.css">
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+  <div class="min-h-screen py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Cappuccino Chat Embedded Widget Demo
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Live demonstration of the embedded chat widget. Configure the widget settings below and see it in action.
+        </p>
+      </div>
+
+      <!-- Environment Info -->
+      <div id="environment-info" class="mb-6 p-4 rounded-lg border hidden">
+        <h3 class="font-semibold mb-2">🌍 Environment Information</h3>
+        <div id="env-details" class="text-sm"></div>
+      </div>
+
+      <!-- Controls Panel -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-8">
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Widget Configuration</h2>
+
+        <!-- Configuration Form -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+          <!-- API Key -->
+          <div>
+            <label for="apiKey" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              API Key
+            </label>
+            <input type="text" id="apiKey" placeholder="Enter your API key" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+          </div>
+
+          <!-- Base URL API -->
+          <div>
+            <label for="baseUrlApi" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Base URL API
+            </label>
+            <input type="text" id="baseUrlApi" value="https://cappucino-api.bsa.id" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+          </div>
+
+          <!-- WebSocket URL -->
+          <div>
+            <label for="baseUrlWs" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              WebSocket URL
+            </label>
+            <input type="text" id="baseUrlWs" value="wss://cappucino-api.bsa.id" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+          </div>
+
+          <!-- Agent Name -->
+          <div>
+            <label for="agentName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Agent Name
+            </label>
+            <input type="text" id="agentName" value="Support Agent" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+          </div>
+
+          <!-- Theme -->
+          <div>
+            <label for="theme" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Theme
+            </label>
+            <select id="theme" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </div>
+
+          <!-- Mode -->
+          <div>
+            <label for="mode" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Mode
+            </label>
+            <select id="mode" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+              <option value="full">Full Widget</option>
+              <option value="chat-only">Chat Only</option>
+            </select>
+          </div>
+
+          <!-- Ticket ID (for chat-only mode) -->
+          <div id="ticketIdContainer" class="hidden">
+            <label for="ticketId" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Ticket ID (Chat-Only Mode)
+            </label>
+            <input type="text" id="ticketId" placeholder="68259ecc8118c45818a8fd41" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+          </div>
+
+          <!-- Widget Resources Base URL -->
+          <div>
+            <label for="resourcesBaseUrl" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              Widget Resources Base URL
+            </label>
+            <input type="text" id="resourcesBaseUrl" value="https://cappucino-api.bsa.id" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+            <p class="text-xs text-gray-500 mt-1">Base URL untuk load CSS dan JS widget</p>
+          </div>
+        </div>
+
+        <!-- Protocol Switcher (Development Only) -->
+        <div id="protocolSwitcher" class="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg hidden">
+          <h4 class="font-medium text-blue-800 dark:text-blue-300 mb-2">🔧 Development Tools</h4>
+          <div class="flex gap-2">
+            <button id="switchToHttp" type="button" class="px-3 py-1 text-sm bg-amber-500 text-white rounded hover:bg-amber-600 transition-colors">
+              Switch to HTTP/WS
+            </button>
+            <button id="switchToHttps" type="button" class="px-3 py-1 text-sm bg-green-500 text-white rounded hover:bg-green-600 transition-colors">
+              Switch to HTTPS/WSS
+            </button>
+            <button id="resetDefaults" type="button" class="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+              Reset to Defaults
+            </button>
+          </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="flex flex-wrap gap-3 mb-4">
+          <button id="initializeWidget" class="px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+              </svg>
+              Initialize Widget
+            </span>
+          </button>
+
+          <button id="toggleTheme" disabled class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+            Toggle Theme
+          </button>
+
+          <button id="showTickets" disabled class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+            Show Tickets
+          </button>
+
+          <button id="showChat" disabled class="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+            Show Chat
+          </button>
+
+          <button id="togglePageTheme" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-800 transition-colors shadow-sm">
+            Toggle Page Theme
+          </button>
+        </div>
+
+        <!-- Status Display -->
+        <div id="statusDisplay" class="hidden p-3 rounded-lg text-sm">
+          <div id="statusContent"></div>
+        </div>
+      </div>
+
+      <!-- Widget Container -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Live Widget Demo</h2>
+
+        <div class="mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg">
+          <h3 class="font-medium text-blue-800 dark:text-blue-300 mb-2">📋 Instructions</h3>
+          <ol class="text-sm text-blue-700 dark:text-blue-400 list-decimal list-inside space-y-1">
+            <li>Configure the widget settings above</li>
+            <li>Click "Initialize Widget" to load the embedded chat widget</li>
+            <li>Use the control buttons to test widget functionality</li>
+            <li>The widget will appear in the container below</li>
+          </ol>
+        </div>
+
+        <!-- Widget Container -->
+        <div id="embedded-chat-widget-container" class="w-full h-[600px] border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 flex items-center justify-center">
+          <div class="text-center text-gray-500 dark:text-gray-400">
+            <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+            <p class="text-lg font-medium">Widget Not Initialized</p>
+            <p class="text-sm">Click "Initialize Widget" to load the embedded chat widget</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configuration Display -->
+      <div id="configDisplay" class="mt-8 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 hidden">
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Current Configuration</h2>
+        <pre id="configJson" class="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg text-sm overflow-x-auto"></pre>
+      </div>
+
+      <!-- Debug Information -->
+      <div id="debugInfo" class="mt-8 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 hidden">
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Debug Information</h2>
+        <div id="debugContent" class="space-y-4"></div>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-12 text-center text-gray-500 dark:text-gray-400">
+        <p>&copy; 2024 Cappuccino AI. All rights reserved.</p>
+        <p class="text-sm mt-1">
+          <a href="https://github.com/cappuccino-ai/widget-samples" target="_blank" class="text-primary-500 hover:text-primary-600">
+            View on GitHub
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-sm mx-4">
+      <div class="flex items-center">
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span class="text-gray-900 dark:text-white">Loading widget...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div id="toastContainer" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+  <!-- Custom JavaScript -->
+  <script src="./demo-script.js"></script>
+</body>
+
+</html>
