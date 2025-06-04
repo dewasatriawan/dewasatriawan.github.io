@@ -261,7 +261,7 @@ class CappuccinoChatDemo {
             const link = document.createElement('link');
             link.id = linkId;
             link.rel = 'stylesheet';
-            link.href = `${this.config.resourcesBaseUrl}/css/cappuccino-chat-embedded.css`;
+            link.href = `cappuccino-chat-embedded.css`;
 
             console.log('[Demo] Loading CSS:', link.href);
 
@@ -293,7 +293,7 @@ class CappuccinoChatDemo {
             // Create new script element
             const script = document.createElement('script');
             script.id = scriptId;
-            script.src = `${this.config.resourcesBaseUrl}/js/cappuccino-chat-embedded.umd.js`;
+            script.src = `cappuccino-chat-embedded.umd.js`;
 
             console.log('[Demo] Loading JS:', script.src);
 
@@ -570,8 +570,8 @@ class CappuccinoChatDemo {
                 },
                 globalConfig: window.WIDGET_CONFIG,
                 resourceUrls: {
-                    css: `${this.config.resourcesBaseUrl}/css/cappuccino-chat-embedded.css`,
-                    js: `${this.config.resourcesBaseUrl}/js/cappuccino-chat-embedded.umd.js`
+                    css: `cappuccino-chat-embedded.css`,
+                    js: `cappuccino-chat-embedded.umd.js`
                 },
                 widgetMethods: this.widget ? Object.getOwnPropertyNames(this.widget).filter(prop => typeof this.widget[prop] === 'function') : []
             };
