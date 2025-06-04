@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cappuccino Chat Embedded Widget Demo</title>
+  <title>Cappuccino Chat Embedded Widget Demo - Enhanced Security</title>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,6 +30,18 @@
               700: '#1d4ed8',
               800: '#1e40af',
               900: '#1e3a8a',
+            },
+            security: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
             }
           }
         }
@@ -44,15 +56,70 @@
       <!-- Header -->
       <div class="text-center mb-8">
         <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Cappuccino Chat Embedded Widget Demo
+          🚀 Cappuccino Chat Widget Demo
         </h1>
-        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Live demonstration of the embedded chat widget. Configure the widget settings below and see it in action.
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4">
+          Enhanced security demonstration of the embedded chat widget with auto-CSP and HTTPS enforcement.
         </p>
+        <div class="flex justify-center items-center space-x-4 text-sm">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400">
+            🛡️ Auto-CSP Enabled
+          </span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400">
+            🔒 HTTPS Enforcement
+          </span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-400">
+            📊 Security Monitoring
+          </span>
+        </div>
+      </div>
+
+      <!-- Security Status Panel -->
+      <div id="security-status-panel" class="mb-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+          <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          Security Status
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+          <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <div class="text-sm font-medium text-gray-700 dark:text-gray-300">Page Protocol</div>
+            <div id="page-protocol-status" class="text-lg font-semibold"></div>
+          </div>
+          <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <div class="text-sm font-medium text-gray-700 dark:text-gray-300">Secure Context</div>
+            <div id="secure-context-status" class="text-lg font-semibold"></div>
+          </div>
+          <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <div class="text-sm font-medium text-gray-700 dark:text-gray-300">CSP Status</div>
+            <div id="csp-status" class="text-lg font-semibold"></div>
+          </div>
+          <div class="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <div class="text-sm font-medium text-gray-700 dark:text-gray-300">Widget Security</div>
+            <div id="widget-security-status" class="text-lg font-semibold">Not Loaded</div>
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button id="check-security-status" class="px-3 py-2 text-sm bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+            🔍 Check Security Status
+          </button>
+          <button id="test-api-connection" class="px-3 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+            🌐 Test API Connection
+          </button>
+          <button id="force-https" class="px-3 py-2 text-sm bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors">
+            🔒 Force HTTPS
+          </button>
+          <button id="add-csp-manually" class="px-3 py-2 text-sm bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors">
+            🛡️ Add CSP
+          </button>
+        </div>
       </div>
 
       <!-- Environment Info -->
-      <div id="environment-info" class="mb-6 p-4 rounded-lg border hidden">
+      <div id="environment-info" class="mb-6 p-4 rounded-lg border">
         <h3 class="font-semibold mb-2">🌍 Environment Information</h3>
         <div id="env-details" class="text-sm"></div>
       </div>
@@ -60,6 +127,25 @@
       <!-- Controls Panel -->
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-8">
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Widget Configuration</h2>
+
+        <!-- Security Configuration -->
+        <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg">
+          <h4 class="font-medium text-blue-800 dark:text-blue-300 mb-3">🔒 Security Settings</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="flex items-center">
+              <input type="checkbox" id="autoAddCSP" checked class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="autoAddCSP" class="ml-2 text-sm text-blue-700 dark:text-blue-400">Auto-add CSP meta tag</label>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="enforceHTTPS" checked class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="enforceHTTPS" class="ml-2 text-sm text-blue-700 dark:text-blue-400">Enforce HTTPS</label>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="debugMode" checked class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="debugMode" class="ml-2 text-sm text-blue-700 dark:text-blue-400">Debug logging</label>
+            </div>
+          </div>
+        </div>
 
         <!-- Configuration Form -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
@@ -75,6 +161,7 @@
           <div>
             <label for="baseUrlApi" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Base URL API
+              <span id="api-url-status" class="ml-1"></span>
             </label>
             <input type="text" id="baseUrlApi" value="https://cappucino-api.bsa.id" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
           </div>
@@ -83,6 +170,7 @@
           <div>
             <label for="baseUrlWs" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               WebSocket URL
+              <span id="ws-url-status" class="ml-1"></span>
             </label>
             <input type="text" id="baseUrlWs" value="wss://cappucino-api.bsa.id" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
           </div>
@@ -130,7 +218,7 @@
             <label for="resourcesBaseUrl" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Widget Resources Base URL
             </label>
-            <input type="text" id="resourcesBaseUrl" value="https://cappucino-api.bsa.id" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+            <input type="text" id="resourcesBaseUrl" value="https://cappucino.bsa.id" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
             <p class="text-xs text-gray-500 mt-1">Base URL untuk load CSS dan JS widget</p>
           </div>
         </div>
@@ -138,7 +226,7 @@
         <!-- Protocol Switcher (Development Only) -->
         <div id="protocolSwitcher" class="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg hidden">
           <h4 class="font-medium text-blue-800 dark:text-blue-300 mb-2">🔧 Development Tools</h4>
-          <div class="flex gap-2">
+          <div class="flex gap-2 flex-wrap">
             <button id="switchToHttp" type="button" class="px-3 py-1 text-sm bg-amber-500 text-white rounded hover:bg-amber-600 transition-colors">
               Switch to HTTP/WS
             </button>
@@ -147,6 +235,9 @@
             </button>
             <button id="resetDefaults" type="button" class="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
               Reset to Defaults
+            </button>
+            <button id="simulate-mixed-content" type="button" class="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
+              Simulate Mixed Content
             </button>
           </div>
         </div>
@@ -174,6 +265,10 @@
             Show Chat
           </button>
 
+          <button id="debugWidget" disabled class="px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+            Debug Widget
+          </button>
+
           <button id="togglePageTheme" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-800 transition-colors shadow-sm">
             Toggle Page Theme
           </button>
@@ -185,6 +280,22 @@
         </div>
       </div>
 
+      <!-- Security Events Panel -->
+      <div id="security-events-panel" class="mb-8 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 hidden">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+          <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+          </svg>
+          Security Events Monitor
+          <button id="clear-security-events" class="ml-auto px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
+            Clear Events
+          </button>
+        </h2>
+        <div id="security-events-list" class="space-y-2 max-h-64 overflow-y-auto">
+          <!-- Security events will be populated here -->
+        </div>
+      </div>
+
       <!-- Widget Container -->
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Live Widget Demo</h2>
@@ -192,10 +303,11 @@
         <div class="mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg">
           <h3 class="font-medium text-blue-800 dark:text-blue-300 mb-2">📋 Instructions</h3>
           <ol class="text-sm text-blue-700 dark:text-blue-400 list-decimal list-inside space-y-1">
-            <li>Configure the widget settings above</li>
-            <li>Click "Initialize Widget" to load the embedded chat widget</li>
+            <li>Configure the widget settings above (security settings are pre-configured)</li>
+            <li>Click "Initialize Widget" to load the embedded chat widget with enhanced security</li>
+            <li>Monitor security events in real-time</li>
             <li>Use the control buttons to test widget functionality</li>
-            <li>The widget will appear in the container below</li>
+            <li>The widget will automatically handle HTTPS enforcement and CSP injection</li>
           </ol>
         </div>
 
@@ -230,6 +342,8 @@
           <a href="https://github.com/cappuccino-ai/widget-samples" target="_blank" class="text-primary-500 hover:text-primary-600">
             View on GitHub
           </a>
+          •
+          <span class="text-security-500 font-medium">Enhanced Security Demo</span>
         </p>
       </div>
     </div>
