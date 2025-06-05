@@ -13,7 +13,6 @@ class EnhancedCappuccinoChatDemo {
             apiKey: '',
             baseUrlApi: '',
             baseUrlWs: '',
-            agentName: 'Support Agent',
             theme: 'light',
             mode: 'full',
             ticketId: '',
@@ -74,42 +73,42 @@ class EnhancedCappuccinoChatDemo {
 
     // Enhanced URL validation with security checks
     validateUrl(url, type) {
-        if (!url) return url;
+        // if (!url) return url;
 
-        const originalUrl = url;
-        let isSecurityChange = false;
+        // const originalUrl = url;
+        // let isSecurityChange = false;
 
-        // Untuk development localhost, biarkan user pilih protokol
-        if (this.environment.isDevelopment && !this.environment.isHttps) {
-            return url;
-        }
+        // // Untuk development localhost, biarkan user pilih protokol
+        // if (this.environment.isDevelopment && !this.environment.isHttps) {
+        //     return url;
+        // }
 
-        // Untuk production atau HTTPS page, enforce secure protocols
-        if (type === 'api' && url.startsWith('http://')) {
-            const httpsUrl = url.replace('http://', 'https://');
-            this.showToast('🔒 URL converted to HTTPS for security', 'warning');
-            this.logSecurityEvent('url_auto_upgrade', { 
-                type: 'api', 
-                original: originalUrl, 
-                converted: httpsUrl,
-                reason: 'Mixed content prevention'
-            });
-            isSecurityChange = true;
-            return httpsUrl;
-        }
+        // // Untuk production atau HTTPS page, enforce secure protocols
+        // if (type === 'api' && url.startsWith('http://')) {
+        //     const httpsUrl = url.replace('http://', 'https://');
+        //     this.showToast('🔒 URL converted to HTTPS for security', 'warning');
+        //     this.logSecurityEvent('url_auto_upgrade', { 
+        //         type: 'api', 
+        //         original: originalUrl, 
+        //         converted: httpsUrl,
+        //         reason: 'Mixed content prevention'
+        //     });
+        //     isSecurityChange = true;
+        //     return httpsUrl;
+        // }
 
-        if (type === 'ws' && url.startsWith('ws://')) {
-            const wssUrl = url.replace('ws://', 'wss://');
-            this.showToast('🔒 WebSocket URL converted to WSS for security', 'warning');
-            this.logSecurityEvent('websocket_auto_upgrade', {
-                type: 'websocket',
-                original: originalUrl,
-                converted: wssUrl,
-                reason: 'Mixed content prevention'
-            });
-            isSecurityChange = true;
-            return wssUrl;
-        }
+        // if (type === 'ws' && url.startsWith('ws://')) {
+        //     const wssUrl = url.replace('ws://', 'wss://');
+        //     this.showToast('🔒 WebSocket URL converted to WSS for security', 'warning');
+        //     this.logSecurityEvent('websocket_auto_upgrade', {
+        //         type: 'websocket',
+        //         original: originalUrl,
+        //         converted: wssUrl,
+        //         reason: 'Mixed content prevention'
+        //     });
+        //     isSecurityChange = true;
+        //     return wssUrl;
+        // }
 
         return url;
     }
@@ -175,7 +174,6 @@ class EnhancedCappuccinoChatDemo {
         document.getElementById('baseUrlApi').value = this.config.baseUrlApi;
         document.getElementById('baseUrlWs').value = this.config.baseUrlWs;
         document.getElementById('resourcesBaseUrl').value = this.config.resourcesBaseUrl;
-        document.getElementById('agentName').value = this.config.agentName;
         document.getElementById('theme').value = this.config.theme;
         document.getElementById('mode').value = this.config.mode;
 
@@ -194,7 +192,7 @@ class EnhancedCappuccinoChatDemo {
     // Enhanced event binding with security features
     bindEvents() {
         // Configuration form changes
-        const formInputs = ['apiKey', 'baseUrlApi', 'baseUrlWs', 'agentName', 'theme', 'mode', 'ticketId', 'resourcesBaseUrl'];
+        const formInputs = ['apiKey', 'baseUrlApi', 'baseUrlWs', 'theme', 'mode', 'ticketId', 'resourcesBaseUrl'];
         formInputs.forEach(id => {
             const element = document.getElementById(id);
             if (element) {
@@ -247,18 +245,16 @@ class EnhancedCappuccinoChatDemo {
         this.config.autoAddCSP = document.getElementById('autoAddCSP').checked;
         this.config.enforceHTTPS = document.getElementById('enforceHTTPS').checked;
         this.config.debug = document.getElementById('debugMode').checked;
+        this.config.isProduction = document.getElementById('isProduction').checked; // Ditambahkan
 
         this.logSecurityEvent('security_config_updated', {
             autoAddCSP: this.config.autoAddCSP,
             enforceHTTPS: this.config.enforceHTTPS,
-            debug: this.config.debug
+            debug: this.config.debug,
+            isProduction: this.config.isProduction
         });
 
-        console.log('[Demo] Security configuration updated:', {
-            autoAddCSP: this.config.autoAddCSP,
-            enforceHTTPS: this.config.enforceHTTPS,
-            debug: this.config.debug
-        });
+        console.log('[Demo] Security config updated:', this.config);
     }
 
     // Setup security monitoring
@@ -391,7 +387,6 @@ class EnhancedCappuccinoChatDemo {
             apiKey: document.getElementById('apiKey').value,
             baseUrlApi: document.getElementById('baseUrlApi').value,
             baseUrlWs: document.getElementById('baseUrlWs').value,
-            agentName: document.getElementById('agentName').value,
             theme: document.getElementById('theme').value,
             mode: document.getElementById('mode').value,
             ticketId: document.getElementById('ticketId').value,
@@ -471,7 +466,6 @@ class EnhancedCappuccinoChatDemo {
                 baseUrlApi: this.config.baseUrlApi,
                 baseUrlWs: this.config.baseUrlWs,
                 containerId: 'embedded-chat-widget-container',
-                agentName: this.config.agentName,
                 theme: this.config.theme,
                 mode: this.config.mode,
                 height: '600px',
