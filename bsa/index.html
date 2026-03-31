@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bima Sakti Alterra (BSA)</title>
+    <link href="http://localhost:3012/css/cappuccino-client-chat.css" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:Arial,Helvetica,sans-serif;color:#0a1e46;background:#f7f9fc;line-height:1.5}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .topbar{background:#0a1e46;color:#fff;font-size:12px}
+        .topbar .container{display:flex;justify-content:space-between;align-items:center;padding:8px 0}
+        .topbar a{color:#fff;text-decoration:none;margin-left:16px}
+        .header{position:sticky;top:0;background:#ffffff;border-bottom:1px solid #e6ecf3;z-index:50}
+        .header .container{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+        .brand{display:flex;align-items:center;gap:10px;color:#0a1e46;text-decoration:none;font-weight:700;font-size:18px}
+        .brand .logo{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#0a1e46,#00a6fb);color:#fff}
+        .nav{display:flex;gap:22px}
+        .nav a{color:#0a1e46;text-decoration:none;font-size:14px}
+        .nav a:hover{color:#00a6fb}
+        .cta{display:inline-block;background:#00a6fb;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600}
+        .cta:hover{background:#078fd4}
+        .hero{background:linear-gradient(160deg,#0a1e46 0%,#0c2b6b 50%,#0a1e46 100%);color:#fff}
+        .hero .container{display:grid;grid-template-columns:1.1fr 0.9fr;gap:28px;align-items:center;padding:56px 0}
+        .eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+        .title{font-size:38px;font-weight:800;line-height:1.2;margin:10px 0 14px}
+        .subtitle{font-size:16px;opacity:.95}
+        .actions{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+        .btn{display:inline-block;border:1px solid rgba(255,255,255,.3);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none}
+        .btn:hover{background:rgba(255,255,255,.1)}
+        .card{background:#fff;border:1px solid #e6ecf3;border-radius:12px;box-shadow:0 4px 16px rgba(10,30,70,.06)}
+        .section{padding:36px 0}
+        .grid{display:grid;gap:18px}
+        .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+        .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+        .stat{padding:20px}
+        .stat h3{font-size:22px;color:#0a1e46;margin-bottom:6px}
+        .stat p{color:#42526e;font-size:14px}
+        .list{padding:10px 20px 20px}
+        .list h4{font-size:16px;color:#0a1e46;margin:12px 0 4px}
+        .list p{font-size:14px;color:#42526e}
+        .footer{background:#0a1e46;color:#dfe8f7}
+        .footer .container{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:22px 0}
+        .footer small{opacity:.9}
+        @media (max-width:960px){
+            .hero .container{grid-template-columns:1fr;padding:36px 0}
+            .nav{display:none}
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="container">
+            <div>Informasi perusahaan dan solusi teknologi untuk transformasi bisnis</div>
+            <div>
+                <a href="#">ID</a>
+                <a href="#">EN</a>
+            </div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="container">
+            <a class="brand" href="#">
+                <span class="logo">B</span>
+                <span>Bima Sakti Alterra</span>
+            </a>
+            <nav class="nav">
+                <a href="#tentang">Tentang</a>
+                <a href="#solusi">Solusi</a>
+                <a href="#layanan">Layanan</a>
+                <a href="#keberlanjutan">Keberlanjutan</a>
+                <a href="#kepemimpinan">Kepemimpinan</a>
+                <a href="#insight">Insight</a>
+            </nav>
+            <a class="cta" href="#kontak">Hubungi Kami</a>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <div>
+                <div class="eyebrow">Bima Sakti Alterra</div>
+                <h1 class="title">Inovasi penuh kemungkinan untuk pertumbuhan dan transformasi teknologi & layanan</h1>
+                <p class="subtitle">Dengan pengalaman dan inovasi teknologi yang berkelanjutan, kami membantu organisasi membangun dan mengelola operasi yang lebih cerdas serta andal.</p>
+                <div class="actions">
+                    <a class="cta" href="#solusi">Pelajari Solusi</a>
+                    <a class="btn" href="#tentang">Tentang Kami</a>
+                </div>
+            </div>
+            <div class="card" style="padding:20px;min-height:180px;display:flex;align-items:center;justify-content:center;text-align:center">
+                <div>
+                    <div style="font-weight:700;font-size:18px;color:#0a1e46;margin-bottom:6px">Sejarah yang Membuka Berbagai Kemungkinan</div>
+                    <div style="color:#42526e">Perjalanan inovasi yang membentuk layanan dan solusi lintas sektor.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section id="solusi" class="section">
+            <div class="container">
+                <div class="grid grid-3">
+                    <div class="card stat">
+                        <h3>Solusi Perusahaan</h3>
+                        <p>Pendekatan menyeluruh untuk kebutuhan misi-kritis dan skala besar.</p>
+                    </div>
+                    <div class="card stat">
+                        <h3>Layanan Digital</h3>
+                        <p>Produk dan platform untuk mempercepat modernisasi dan efisiensi.</p>
+                    </div>
+                    <div class="card stat">
+                        <h3>Operasional Andal</h3>
+                        <p>Praktik dan alat untuk menjaga keandalan, keamanan, dan kepatuhan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="tentang" class="section">
+            <div class="container">
+                <div class="card list">
+                    <h4>Tentang Bima Sakti Alterra</h4>
+                    <p>Lihat bagaimana pendekatan solusi kami relevan dan berdampak bagi pelanggan, mitra, dan komunitas.</p>
+                    <h4>Keberlanjutan</h4>
+                    <p>Komitmen terhadap keberlanjutan dan tanggung jawab operasional.</p>
+                    <h4>Kepemimpinan</h4>
+                    <p>Kepemimpinan organisasi yang mendorong inovasi dan hasil nyata.</p>
+                </div>
+            </div>
+        </section>
+        <section id="insight" class="section">
+            <div class="container">
+                <div class="grid grid-2">
+                    <div class="card stat">
+                        <h3>Menghadirkan Solusi di Seluruh Nusantara</h3>
+                        <p>Eksekusi dan implementasi di berbagai wilayah dan sektor industri.</p>
+                    </div>
+                    <div class="card stat">
+                        <h3>Berita & Perkembangan</h3>
+                        <p>Peristiwa terbaru tentang inisiatif, kolaborasi, dan pencapaian.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="kontak" class="footer">
+        <div class="container">
+            <small>© Bima Sakti Alterra</small>
+            <div>
+                <a class="btn" href="#">Kebijakan Privasi</a>
+                <a class="btn" href="#">Syarat Layanan</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        window.WIDGET_CONFIG = {
+            baseUrlApi: 'https://contactcenter-api.bsa.id',
+            baseUrlWs: 'wss://contactcenter-api.bsa.id',
+            apiKey: 'web_126530a859f8f44c8f8ba30797f57cb05505e0be9447840c30910d89e5084ca7'
+        };
+    </script>
+    <script src="https://contactcenter.bsa.id/js/cappuccino-client-chat.umd.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.CappuccinoClientChatWidget) {
+                window.CappuccinoClientChatWidget({
+                    apiKey: window.WIDGET_CONFIG.apiKey,
+                    baseUrlApi: window.WIDGET_CONFIG.baseUrlApi,
+                    baseUrlWs: window.WIDGET_CONFIG.baseUrlWs,
+                    primaryColor: '#0a1e46',
+                    botName: 'BOT BSA',
+                    botImage: '',
+                    position: 'bottom-right',
+                    theme: 'light'
+                });
+            }
+        });
+    </script>
+</body>
+</html>
