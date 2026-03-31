@@ -7,21 +7,21 @@
     <link href="https://contactcenter.bsa.id/css/cappuccino-client-chat.css" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:Arial,Helvetica,sans-serif;color:#0a1e46;background:#f7f9fc;line-height:1.5}
+        body{font-family:Arial,Helvetica,sans-serif;color:#2a2a2a;background:#f7f9fc;line-height:1.5}
         .container{max-width:1200px;margin:0 auto;padding:0 20px}
-        .topbar{background:#0a1e46;color:#fff;font-size:12px}
+        .topbar{background:#b71c1c;color:#fff;font-size:12px}
         .topbar .container{display:flex;justify-content:space-between;align-items:center;padding:8px 0}
         .topbar a{color:#fff;text-decoration:none;margin-left:16px}
         .header{position:sticky;top:0;background:#ffffff;border-bottom:1px solid #e6ecf3;z-index:50}
         .header .container{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-        .brand{display:flex;align-items:center;gap:10px;color:#0a1e46;text-decoration:none;font-weight:700;font-size:18px}
-        .brand .logo{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#0a1e46,#00a6fb);color:#fff}
+        .brand{display:flex;align-items:center;gap:10px;color:#b71c1c;text-decoration:none;font-weight:700;font-size:18px}
+        .brand-logo{height:36px;width:auto}
         .nav{display:flex;gap:22px}
-        .nav a{color:#0a1e46;text-decoration:none;font-size:14px}
-        .nav a:hover{color:#00a6fb}
-        .cta{display:inline-block;background:#00a6fb;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600}
-        .cta:hover{background:#078fd4}
-        .hero{background:linear-gradient(160deg,#0a1e46 0%,#0c2b6b 50%,#0a1e46 100%);color:#fff}
+        .nav a{color:#b71c1c;text-decoration:none;font-size:14px}
+        .nav a:hover{color:#d32f2f}
+        .cta{display:inline-block;background:#d32f2f;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600}
+        .cta:hover{background:#b71c1c}
+        .hero{background:linear-gradient(160deg,#b71c1c 0%,#d32f2f 50%,#7f0000 100%);color:#fff}
         .hero .container{display:grid;grid-template-columns:1.1fr 0.9fr;gap:28px;align-items:center;padding:56px 0}
         .eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
         .title{font-size:38px;font-weight:800;line-height:1.2;margin:10px 0 14px}
@@ -35,12 +35,12 @@
         .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
         .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
         .stat{padding:20px}
-        .stat h3{font-size:22px;color:#0a1e46;margin-bottom:6px}
+        .stat h3{font-size:22px;color:#b71c1c;margin-bottom:6px}
         .stat p{color:#42526e;font-size:14px}
         .list{padding:10px 20px 20px}
-        .list h4{font-size:16px;color:#0a1e46;margin:12px 0 4px}
+        .list h4{font-size:16px;color:#b71c1c;margin:12px 0 4px}
         .list p{font-size:14px;color:#42526e}
-        .footer{background:#0a1e46;color:#dfe8f7}
+        .footer{background:#8e0000;color:#f2e8e8}
         .footer .container{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:22px 0}
         .footer small{opacity:.9}
         @media (max-width:960px){
@@ -62,7 +62,7 @@
     <header class="header">
         <div class="container">
             <a class="brand" href="#">
-                <span class="logo">B</span>
+                <img class="brand-logo" src="https://bsa.id/wp-content/uploads/2022/02/Bima-Sakti-Alterra-LOGO-web.png" alt="Bima Sakti Alterra" />
                 <span>Bima Sakti Alterra</span>
             </a>
             <nav class="nav">
@@ -89,7 +89,7 @@
             </div>
             <div class="card" style="padding:20px;min-height:180px;display:flex;align-items:center;justify-content:center;text-align:center">
                 <div>
-                    <div style="font-weight:700;font-size:18px;color:#0a1e46;margin-bottom:6px">Sejarah yang Membuka Berbagai Kemungkinan</div>
+                    <div style="font-weight:700;font-size:18px;color:#b71c1c;margin-bottom:6px">Sejarah yang Membuka Berbagai Kemungkinan</div>
                     <div style="color:#42526e">Perjalanan inovasi yang membentuk layanan dan solusi lintas sektor.</div>
                 </div>
             </div>
@@ -165,9 +165,9 @@
                     apiKey: window.WIDGET_CONFIG.apiKey,
                     baseUrlApi: window.WIDGET_CONFIG.baseUrlApi,
                     baseUrlWs: window.WIDGET_CONFIG.baseUrlWs,
-                    primaryColor: '#0a1e46',
+                    primaryColor: '#d32f2f',
                     botName: 'BOT BSA',
-                    botImage: '',
+                    botImage: 'https://bsa.id/wp-content/uploads/2022/02/Bima-Sakti-Alterra-LOGO-web.png',
                     position: 'bottom-right',
                     theme: 'light'
                 });
