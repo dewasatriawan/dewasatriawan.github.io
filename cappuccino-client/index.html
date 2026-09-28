@@ -214,37 +214,18 @@
         </div>
     </main>
 
-    <!-- Initialize Widget Config First -->
-    <script>
-        window.WIDGET_CONFIG = {
-            baseUrlApi: 'https://cappucino-api.bsa.id',
-            baseUrlWs: 'wss://cappucino-api.bsa.id',
-            apiKey: 'web_b202c408e4ed88203dfabe486709a29ad53d1f3c52f122ba9c774d80cb5cd5b2'
-        };
-    </script>
 
-    <!-- Include Widget Script -->
-    <script src="https://cappucino.bsa.id/js/cappuccino-client-chat.umd.js"></script>
-    
-    <!-- Initialize Widget -->
+    <!-- Start of Cappuccino Webchat Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.CappuccinoClientChatWidget) {
-                window.CappuccinoClientChatWidget({
-                    apiKey: window.WIDGET_CONFIG.apiKey,
-                    baseUrlApi: window.WIDGET_CONFIG.baseUrlApi,
-                    baseUrlWs: window.WIDGET_CONFIG.baseUrlWs,
-                    primaryColor: '#0CA1EE',
-                    botName: 'Bima Bot',
-                    botImage: '',
-                    position: 'bottom-right',
-                    theme: 'light'
-                });
-            } else {
-                console.error('Chat widget failed to load');
-            }
-        });
+      var cappuccinoInit = document.createElement('script');
+      cappuccinoInit.src = "https://cappucino.bsa.id/webchat.js";
+      document.head.prepend(cappuccinoInit);
+      cappuccinoInit.onload = function () {
+        cappuccinoWebchatInit({ token: 'web_b202c408e4ed88203dfabe486709a29ad53d1f3c52f122ba9c774d80cb5cd5b2' });
+      };
     </script>
+    <!-- End of Cappuccino Webchat Script -->
+
 </body>
 
 </html>
