@@ -150,29 +150,15 @@
             </div>
         </div>
     </footer>
+    <!-- Start of Cappuccino Webchat Script -->
     <script>
-        window.WIDGET_CONFIG = {
-            baseUrlApi: 'https://contactcenter-api.bsa.id',
-            baseUrlWs: 'wss://contactcenter-api.bsa.id',
-            apiKey: 'web_126530a859f8f44c8f8ba30797f57cb05505e0be9447840c30910d89e5084ca7'
-        };
+      var cappuccinoInit = document.createElement('script');
+      cappuccinoInit.src = "https://contactcenter.bsa.id/webchat.js";
+      document.head.prepend(cappuccinoInit);
+      cappuccinoInit.onload = function () {
+        cappuccinoWebchatInit({ token: 'web_126530a859f8f44c8f8ba30797f57cb05505e0be9447840c30910d89e5084ca7' });
+      };
     </script>
-    <script src="https://contactcenter.bsa.id/js/cappuccino-client-chat.umd.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.CappuccinoClientChatWidget) {
-                window.CappuccinoClientChatWidget({
-                    apiKey: window.WIDGET_CONFIG.apiKey,
-                    baseUrlApi: window.WIDGET_CONFIG.baseUrlApi,
-                    baseUrlWs: window.WIDGET_CONFIG.baseUrlWs,
-                    primaryColor: '#d32f2f',
-                    botName: 'BOT BSA',
-                    botImage: 'https://bsa.id/wp-content/uploads/2022/02/Bima-Sakti-Alterra-LOGO-web.png',
-                    position: 'bottom-right',
-                    theme: 'light'
-                });
-            }
-        });
-    </script>
+    <!-- End of Cappuccino Webchat Script -->
 </body>
 </html>
